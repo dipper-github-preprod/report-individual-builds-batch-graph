@@ -1,14 +1,16 @@
 version: 0.2
 
 batch:
-  fast-fail: false
+  fast-fail: true
   build-graph:
     - identifier: linux_small
       env:
         compute-type: BUILD_GENERAL1_SMALL
+      ignore-failure: true  
     - identifier: linux_medium
       env:
         compute-type: BUILD_GENERAL1_MEDIUM
+      ignore-failure: true
       depend-on:
         - linux_small
     - identifier: linux_large
@@ -16,6 +18,7 @@ batch:
         compute-type: BUILD_GENERAL1_LARGE
       depend-on:
         - linux_medium
+      ignore-failure: true
 
 phases:
   install:
@@ -28,6 +31,7 @@ phases:
     commands:
       - echo 'Compiling the Java Code'
       - javac -cp . HelloWorld.java
+      - if [ $CODEBUILD_BUILD_NUMBER -gt 5 ]; then fail; fi
   post_build:
     commands:
       - echo "Would deploy here"
