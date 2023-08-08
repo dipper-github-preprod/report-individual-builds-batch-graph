@@ -1,7 +1,6 @@
 version: 0.2
 
 batch:
-  fast-fail: false
   build-graph:
     - identifier: linux_small
       env:
@@ -18,6 +17,9 @@ batch:
         - linux_medium
 
 phases:
+  install:
+    runtime-versions:
+      golang: 1.13
   pre_build:
     commands:
       - echo 'prebuild'
