@@ -27,10 +27,11 @@
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */ 
+ */
 
 /** 
  * The HelloWorldApp class implements an application that simply prints "Hello World" to standard output.
+ * Some tests changes
  */
 public class HelloWorld {
   public static void main(String[] args) {
